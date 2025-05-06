@@ -12,8 +12,7 @@ class LoginViewController: UIViewController{
     
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
-        //titleLabel.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
-        titleLabel.font = .boldSystemFont(ofSize: 18)
+        titleLabel.font = UIFont(name: "PretendardGOV-Bold", size: 18)
         titleLabel.text = "동네라서 가능한 모든 것\n당근에서 가까운 이웃과 함께해요."
         titleLabel.numberOfLines = 2
         titleLabel.textAlignment = .center
@@ -25,7 +24,8 @@ class LoginViewController: UIViewController{
         let idTextField = UITextField()
         idTextField.placeholder = "아이디"
         idTextField.backgroundColor = .grey200
-        idTextField.font = UIFont(name: "Pretendard", size: 14)
+        idTextField.font = UIFont(name: "PretendardGOV-SemiBold", size: 14)
+        idTextField.layer.cornerRadius = 3
         return idTextField
     }()
     
@@ -33,7 +33,8 @@ class LoginViewController: UIViewController{
         let pwTextField = UITextField()
         pwTextField.placeholder = "비밀번호"
         pwTextField.backgroundColor = .grey200
-        pwTextField.font = UIFont(name: "Pretendard", size: 14)
+        pwTextField.font = UIFont(name: "PretendardGOV-SemiBold", size: 14)
+        pwTextField.layer.cornerRadius = 3
         return pwTextField
     }()
     
@@ -42,7 +43,8 @@ class LoginViewController: UIViewController{
         loginButton.setTitle("로그인하기", for: .normal)
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.backgroundColor = .primaryOrange
-        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        loginButton.titleLabel?.font = UIFont(name: "PretendardGOV-Bold", size: 18)
+        loginButton.layer.cornerRadius = 6
         return loginButton
     }()
     
@@ -61,7 +63,10 @@ class LoginViewController: UIViewController{
         loginButton.addTarget(self, action: #selector(moveToWelcomeView), for: .touchUpInside)
         
         setConstraints()
+        
+        
     }
+    
     
     func setConstraints() {
         titleLabel.snp.makeConstraints{
@@ -96,6 +101,7 @@ class LoginViewController: UIViewController{
             $0.centerY.equalTo(view.snp.centerY)
         }
          */
+        
 
     }
     

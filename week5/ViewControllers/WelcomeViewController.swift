@@ -18,7 +18,7 @@ class WelcomeViewController: UIViewController{
     
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.font = .boldSystemFont(ofSize: 25)
+        titleLabel.font = UIFont(name: "PretendardGOV-ExtraBold", size: 25)
         titleLabel.text = "고객님\n반가워요!"
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
@@ -31,6 +31,8 @@ class WelcomeViewController: UIViewController{
         mainButton.setTitle("메인으로", for: .normal)
         mainButton.setTitleColor(.white, for: .normal)
         mainButton.backgroundColor = .primaryOrange
+        mainButton.titleLabel?.font = UIFont(name: "PretendardGOV-Bold", size: 18)
+        mainButton.layer.cornerRadius = 6
         return mainButton
     }()
     
@@ -40,6 +42,8 @@ class WelcomeViewController: UIViewController{
         moveToLoginViewButton.setTitleColor(.black, for: .normal)
         moveToLoginViewButton.backgroundColor = .grey200
         moveToLoginViewButton.setTitleColor(.grey300, for: .normal)
+        moveToLoginViewButton.titleLabel?.font = UIFont(name: "PretendardGOV-Bold", size: 18)
+        moveToLoginViewButton.layer.cornerRadius = 6
         return moveToLoginViewButton
     }()
 
