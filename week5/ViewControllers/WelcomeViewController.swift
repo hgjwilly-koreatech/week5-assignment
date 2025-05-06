@@ -101,16 +101,6 @@ class WelcomeViewController: UIViewController{
         self.navigationController?.popViewController(animated: true)
         
         
-        //let loginViewController = LoginViewController()
-        
-        
-        // present
-        
-        
-        // modal
-        //self.present
-        
-        
     }
 }
 

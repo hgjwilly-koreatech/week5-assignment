@@ -109,9 +109,9 @@ class LoginViewController: UIViewController{
         let welcomeViewController = WelcomeViewController()
         
         // nagivation
-        // self.navigationController?.pushViewController(welcomeViewController, animated: true)
+         self.navigationController?.pushViewController(welcomeViewController, animated: true)
         
         // modal
-        present(welcomeViewController, animated: true)
+        // present(welcomeViewController, animated: true)
     }
 }
