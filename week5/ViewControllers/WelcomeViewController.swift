@@ -10,6 +10,8 @@ import SnapKit
 
 class WelcomeViewController: UIViewController{
     
+    var name: String?
+    
     let rabbitImageView: UIImageView = {
         let rabbitImageView = UIImageView()
         rabbitImageView.image = UIImage(named: "rabbit")
@@ -19,7 +21,7 @@ class WelcomeViewController: UIViewController{
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont(name: "PretendardGOV-ExtraBold", size: 25)
-        titleLabel.text = "고객님\n반가워요!"
+        titleLabel.text = "(name)님\n반가워요!"
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 2
@@ -64,13 +66,15 @@ class WelcomeViewController: UIViewController{
         
         moveToLoginViewButton.addTarget(self, action: #selector(moveToLoginView), for: .touchUpInside)
         
-        /*
-        button.snp.makeConstraints{
-            $0.centerX.equalTo(view.snp.centerX)
-            $0.centerY.equalTo(view.snp.centerY)
-        }
-        */
+        // if id 입력하지 않았으면, 고객님 반가워요
+        // else, id님 반가워요
+        titleLabel.text = "\(name ?? "고객")님\n반가워요!"
         
+        setConstraints()
+        
+    }
+    
+    func setConstraints() {
         rabbitImageView.snp.makeConstraints{
             $0.centerX.equalTo(view.snp.centerX)
             $0.top.equalTo(view.snp.top).offset(88)
@@ -96,6 +100,7 @@ class WelcomeViewController: UIViewController{
             $0.height.equalTo(57)
         }
     }
+    
     @objc private func moveToLoginView(){
         // navigation
         self.navigationController?.popViewController(animated: true)

@@ -8,6 +8,14 @@
 import Foundation
 import SnapKit
 
+// placeholder textcolor (검색해보고 적용했습니다)
+extension UITextField {
+    func setPlaceholder(color: UIColor){
+        guard let string = self.placeholder else {return}
+        attributedPlaceholder = NSAttributedString(string: string, attributes: [.foregroundColor: color])
+    }
+}
+
 class LoginViewController: UIViewController{
     
     let titleLabel: UILabel = {
@@ -26,6 +34,8 @@ class LoginViewController: UIViewController{
         idTextField.backgroundColor = .grey200
         idTextField.font = UIFont(name: "PretendardGOV-SemiBold", size: 14)
         idTextField.layer.cornerRadius = 3
+        idTextField.setPlaceholder(color: .grey300)
+        idTextField.textColor = .black
         return idTextField
     }()
     
@@ -35,6 +45,8 @@ class LoginViewController: UIViewController{
         pwTextField.backgroundColor = .grey200
         pwTextField.font = UIFont(name: "PretendardGOV-SemiBold", size: 14)
         pwTextField.layer.cornerRadius = 3
+        pwTextField.setPlaceholder(color: .grey300)
+        pwTextField.textColor = .black
         return pwTextField
     }()
     
@@ -63,8 +75,6 @@ class LoginViewController: UIViewController{
         loginButton.addTarget(self, action: #selector(moveToWelcomeView), for: .touchUpInside)
         
         setConstraints()
-        
-        
     }
     
     
@@ -94,22 +104,14 @@ class LoginViewController: UIViewController{
             $0.right.equalTo(view.snp.right).offset(-20)
             $0.height.equalTo(57)
         }
-        
-        /*
-        button.snp.makeConstraints{
-            $0.centerX.equalTo(view.snp.centerX)
-            $0.centerY.equalTo(view.snp.centerY)
-        }
-         */
-        
-
     }
     
     @objc private func moveToWelcomeView(){
         let welcomeViewController = WelcomeViewController()
+        if idTextField.text != "" { welcomeViewController.name = idTextField.text }
         
         // nagivation
-         self.navigationController?.pushViewController(welcomeViewController, animated: true)
+        self.navigationController?.pushViewController(welcomeViewController, animated: true)
         
         // modal
         // present(welcomeViewController, animated: true)
